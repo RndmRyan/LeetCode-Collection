@@ -2,7 +2,7 @@ class Solution {
 public:
     string convert(string s, int numRows) 
     {
-        if (numRows == 1 || numRows >= s.length()) 
+        if (numRows == 1) 
             return s;
 
         vector<string> zigzag(numRows);
@@ -17,7 +17,7 @@ public:
         }
     
         string word;
-        for (const std::string& str : zigzag) 
+        for (const string& str : zigzag) 
             word += str;
         return word;
     }
