@@ -6,9 +6,8 @@ public:
 
         while (empty >= numExchange)
         {
-            empty -= numExchange;
+            empty -= (numExchange - 1);
             numBottles++;
-            empty++;
             numExchange++;
         }
 
