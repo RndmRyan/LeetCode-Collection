@@ -3,11 +3,9 @@ def isPalindrome(n):
     return n == reversed_n
 
 def base_convert(n, base):
-    digits = '0123456789'
-    
     result = ''
     while n > 0:
-        result = digits[n % base] + result
+        result = str(n % base) + result
         n = n // base
     return result or '0'
 
