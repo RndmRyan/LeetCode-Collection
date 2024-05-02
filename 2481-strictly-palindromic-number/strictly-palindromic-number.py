@@ -1,9 +1,11 @@
 def base_convert(n, base):
     result = ''
+    rresult = ''
     while n > 0:
-        result = str(n % base) + result
+        next = str(n % base)
+        result = next + result
+        rresult += next 
         n = n // base
-    rresult = result[::-1]
     return result == rresult
 
 class Solution:
