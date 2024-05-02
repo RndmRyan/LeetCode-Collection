@@ -3,10 +3,7 @@ def isPalindrome(n):
     return n == reversed_n
 
 def base_convert(n, base):
-    if base > 10:
-        digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    else:
-        digits = '0123456789'
+    digits = '0123456789'
     
     result = ''
     while n > 0:
