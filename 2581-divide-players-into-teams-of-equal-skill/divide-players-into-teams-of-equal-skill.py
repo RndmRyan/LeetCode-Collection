@@ -9,12 +9,11 @@ class Solution:
             return sum
 
         #calculations
-        reqteamskill = sum(skill) / (len(skill)/2)
-        remainingskill = sum(skill) % (len(skill)/2)
         lengt = len(skill)
         teamlen = int(lengt/2)-1
+        reqteamskill = sum(skill) / (teamlen+1)
 
-        if (remainingskill) != 0:
+        if (sum(skill) % (teamlen+1)) != 0:
             return -1
 
         #sort list
