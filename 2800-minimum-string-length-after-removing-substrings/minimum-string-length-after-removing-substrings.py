@@ -5,11 +5,11 @@ class Solution:
         while found == True:
             found = False
             if 'AB' in s:
-                index = s.find('AB')
-                s = s[:index]+s[index+2:]
+                s = s.replace('AB', '')
                 found = True
+
             elif 'CD' in s:
-                index = s.find('CD')
-                s = s[:index]+s[index+2:]
+                s = s.replace('CD', '')
                 found = True
+
         return len(s)
