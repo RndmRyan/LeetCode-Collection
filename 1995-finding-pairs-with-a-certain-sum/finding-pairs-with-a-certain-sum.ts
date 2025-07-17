@@ -2,8 +2,6 @@ class FindSumPairs {
     private nums1:number[];
     private nums2:number[];
     private countx:Map<number, number>;
-    private count1:Map<number, number>;
-
 
     constructor(nums1: number[], nums2: number[]) {
         this.nums1 = nums1;
@@ -11,9 +9,6 @@ class FindSumPairs {
         this.countx = new Map();
         for(const num of nums2)
             this.countx.set(num, ((this.countx.get(num)||0)+1));
-        this.count1 = new Map();
-        for(const num of nums1)
-            this.count1.set(num, ((this.count1.get(num)||0)+1));
     }
 
     add(index: number, val: number): void {
@@ -28,10 +23,9 @@ class FindSumPairs {
 
     count(tot: number): number {
         let ans = 0;
-        for (const [num1, freq1] of this.count1) {
-            const rest = tot - num1;
-            const freq2 = this.countx.get(rest) || 0;
-            ans += freq1 * freq2;
+        for (const j of this.nums1) {
+            const rest = tot - j;
+            ans += this.countx.get(rest) || 0;
         }
         return ans;
     }
