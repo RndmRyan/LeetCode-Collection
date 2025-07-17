@@ -4,12 +4,8 @@ function maximumDifference(nums: number[]): number {
     {
         for(let j=i+1;j<nums.length;j++)
         {
-            if(nums[i]<nums[j])
-            {   
-                const dif = nums[j]-nums[i];
-                if (dif > maxdif)
-                    maxdif = dif;
-            }
+            if(nums[i]<nums[j] && nums[j]-nums[i] > maxdif)
+                maxdif = nums[j]-nums[i];
         }
     }
     return maxdif
