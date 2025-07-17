@@ -12,21 +12,15 @@ class FindSumPairs {
     }
 
     add(index: number, val: number): void {
-        const oldVal = this.nums2[index];
-        this.countx.set(oldVal, (this.countx.get(oldVal) || 0) - 1);
-
+        this.countx.set(this.nums2[index], (this.countx.get(this.nums2[index]) || 0) - 1);
         this.nums2[index] += val;
-
-        const newVal = this.nums2[index];
-        this.countx.set(newVal, (this.countx.get(newVal) || 0) + 1);
+        this.countx.set(this.nums2[index], (this.countx.get(this.nums2[index]) || 0) + 1);
     }
 
     count(tot: number): number {
         let ans = 0;
-        for (const j of this.nums1) {
-            const rest = tot - j;
-            ans += this.countx.get(rest) || 0;
-        }
+        for (const j of this.nums1)
+            ans += this.countx.get(tot - j) || 0;
         return ans;
     }
 }
