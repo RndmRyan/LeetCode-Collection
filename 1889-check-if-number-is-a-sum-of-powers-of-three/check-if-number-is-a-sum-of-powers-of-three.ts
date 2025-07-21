@@ -1,13 +1,12 @@
 function recurs(n:number, lasti:number): boolean {
-    let i=lasti;
-    while (i>0 && Math.pow(3, i)>n) i--;
-    if (i < 0) return false;
+    while (lasti>0 && Math.pow(3, lasti)>n) lasti--;
+    if (lasti < 0) return false;
 
-    if(Math.pow(3, i) == n) 
+    if(Math.pow(3, lasti) == n) 
         return true
     else
     {
-        if(recurs(n - Math.pow(3, i), i-1)) 
+        if(recurs(n - Math.pow(3, lasti), lasti-1)) 
             return true
         return false
     }
