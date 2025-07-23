@@ -3,26 +3,29 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
     //save them in a hash/map where each word is a key and hold count in value
     //before checking make sure to only use lowercase letters
 
-    const words = paragraph.replaceAll(/[!|?|'|,|;|.]/g, ' ').toLowerCase().split(" ");
-    let collect = new Map();
+    const words = paragraph
+        .replace(/[!?',;.]/g, ' ')
+        .toLowerCase()
+        .split(" ")
+        .filter(Boolean);
+    
+    const bannedSet = new Set(banned);
+    const count: Map<string, number> = new Map();
 
     for(const word of words)
-        collect.set(word, (collect.get(word)+1||1));
-    for(const word of banned)
-        collect.delete(word);
-    collect.delete('');
-
-    console.log(collect);
-
+        if(!bannedSet.has(word))
+            count.set(word, (count.get(word) || 0) + 1);
+    
+    
     let finalword = "";
     let maxval = 0;
-    collect.forEach(function(value, key) {
+    for (const [key, value] of count.entries()) {
         if(value>maxval)
         {
             finalword = key;
             maxval = value;
         }
-    })
+    }
 
     return finalword
 };
